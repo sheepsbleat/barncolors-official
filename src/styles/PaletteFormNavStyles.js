@@ -30,10 +30,11 @@ const styles = (theme) => ({
     marginRight: 20,
   },
   navBtns: {
-    marginRight: "1rem",
+    marginRight: "2rem",
     "& a": {
       textDecoration: "none",
     },
+    display: "flex",
   },
   button: {
     margin: "0.5rem",

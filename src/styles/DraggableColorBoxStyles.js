@@ -4,6 +4,7 @@ const styles = {
   root: {
     width: "20%",
     height: "25%",
+    minHeight: "40px",
     margin: "0 auto",
     display: "inline-block",
     position: "relative",
@@ -28,6 +29,7 @@ const styles = {
   },
   boxContent: {
     position: "absolute",
+
     width: "100%",
     left: "0px",
     bottom: "0px",
@@ -38,6 +40,7 @@ const styles = {
     fontSize: "12px",
     display: "flex",
     justifyContent: "space-between",
+    alignItems: "center",
   },
   deleteIcon: {
     transition: "all 0.3s ease-in-out",
