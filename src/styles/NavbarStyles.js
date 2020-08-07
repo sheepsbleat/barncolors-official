@@ -52,4 +52,9 @@ export default {
     marginLeft: "auto",
     marginRight: "1rem",
   },
+  [sizes.down("sm")]: {
+    levelText: {
+      marginLeft: "10px",
+    },
+  },
 };
