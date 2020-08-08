@@ -13,11 +13,6 @@ code {
     monospace;
 }
 
-/* .fade-exit {
-  opacity: 1;
-  transition: opacity 0.5ms ease-out;
-} */
-
 .fade-exit {
   opacity: 1;
 }
@@ -33,6 +28,7 @@ code {
   width: 100%;
   top: 0;
   transition: transform 500ms ease-out;
+  background-color: #fff;
 }
 
 .page-enter {
