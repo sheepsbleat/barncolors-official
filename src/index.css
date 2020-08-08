@@ -25,19 +25,6 @@ code {
 .fade-exit-active {
   opacity: 0;
   transition: opacity 500ms ease-out;
-
-
-}
-
-
-@keyframes fade {
-  0% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-  }
 }
 
 .page {
@@ -45,5 +32,32 @@ code {
   position: fixed;
   width: 100%;
   top: 0;
-  transition: opacity 0.5s ease-in-out;
+  transition: transform 500ms ease-out;
+}
+
+.page-enter {
+  transition: transform 500ms ease-out;
+
+  transform: translateX(-100%);
+}
+
+.page-enter-active {
+  transition: transform 500ms ease-out;
+
+  transform: translateX(0);
+}
+
+.page-exit {
+  z-index: -100;
+  transition: transform 500ms ease-out;
+
+  transform: translateX(0);
+}
+
+.page-exit-active {
+  z-index: -100;
+
+  transition: transform 500ms ease-out;
+
+  transform: translate(-100%);
 }
