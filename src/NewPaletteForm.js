@@ -15,13 +15,13 @@ import styles from "./styles/NewPaletteFormStyles";
 
 class NewPaletteForm extends Component {
   static defaultProps = {
-    maxColors: 20
+    maxColors: 20,
   };
   constructor(props) {
     super(props);
     this.state = {
       open: true,
-      colors: this.props.palettes[0].colors
+      colors: this.props.palettes[0].colors,
     };
     this.addNewColor = this.addNewColor.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -42,12 +42,12 @@ class NewPaletteForm extends Component {
   addNewColor(newColor) {
     this.setState({
       colors: [...this.state.colors, newColor],
-      newColorName: ""
+      newColorName: "",
     });
   }
   handleChange(evt) {
     this.setState({
-      [evt.target.name]: evt.target.value
+      [evt.target.name]: evt.target.value,
     });
   }
   clearColors() {
@@ -55,7 +55,7 @@ class NewPaletteForm extends Component {
   }
   addRandomColor() {
     //pick random color from existing palettes
-    const allColors = this.props.palettes.map(p => p.colors).flat();
+    const allColors = this.props.palettes.map((p) => p.colors).flat();
     var rand = Math.floor(Math.random() * allColors.length);
     const randomColor = allColors[rand];
     this.setState({ colors: [...this.state.colors, randomColor] });
@@ -64,18 +64,17 @@ class NewPaletteForm extends Component {
     newPalette.id = newPalette.paletteName.toLowerCase().replace(/ /g, "-");
     newPalette.colors = this.state.colors;
 
-    
     this.props.savePalette(newPalette);
     this.props.history.push("/");
   }
   removeColor(colorName) {
     this.setState({
-      colors: this.state.colors.filter(color => color.name !== colorName)
+      colors: this.state.colors.filter((color) => color.name !== colorName),
     });
   }
   onSortEnd = ({ oldIndex, newIndex }) => {
     this.setState(({ colors }) => ({
-      colors: arrayMove(colors, oldIndex, newIndex)
+      colors: arrayMove(colors, oldIndex, newIndex),
     }));
   };
 
@@ -94,11 +93,11 @@ class NewPaletteForm extends Component {
         />
         <Drawer
           className={classes.drawer}
-          variant='persistent'
-          anchor='left'
+          variant="persistent"
+          anchor="left"
           open={open}
           classes={{
-            paper: classes.drawerPaper
+            paper: classes.drawerPaper,
           }}
         >
           <div className={classes.drawerHeader}>
@@ -108,43 +107,47 @@ class NewPaletteForm extends Component {
           </div>
           <Divider />
           <div className={classes.container}>
-            <Typography variant='h4' gutterBottom>Design Your Palette</Typography>
+            <Typography variant="h4" gutterBottom>
+              Design Your Palette
+            </Typography>
             <div className={classes.buttons}>
               <Button
                 className={classes.button}
-                variant='contained'
-                color='secondary'
+                variant="contained"
+                color="secondary"
                 onClick={this.clearColors}
               >
                 Clear Palette
-            </Button>
+              </Button>
               <Button
                 className={classes.button}
-                variant='contained'
-                color='primary'
+                variant="contained"
+                color="primary"
                 onClick={this.addRandomColor}
                 disabled={paletteIsFull}
               >
                 Random Color
-            </Button>
+              </Button>
             </div>
             <ColorPickerForm
               paletteIsFull={paletteIsFull}
               addNewColor={this.addNewColor}
               colors={colors}
-            /></div>
+            />
+          </div>
         </Drawer>
 
         <main
           className={classNames(classes.content, {
-            [classes.contentShift]: open
+            [classes.contentShift]: open,
           })}
         >
           <div className={classes.drawerHeader} />
           <DraggableColorList
             colors={colors}
+            distance={20}
             removeColor={this.removeColor}
-            axis='xy'
+            axis="xy"
             onSortEnd={this.onSortEnd}
           />
         </main>
