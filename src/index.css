@@ -12,3 +12,22 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+/* .fade-exit {
+  opacity: 1;
+  transition: opacity 0.5ms ease-out;
+} */
+
+.fade-exit-active {
+  animation: fade 500ms linear;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
