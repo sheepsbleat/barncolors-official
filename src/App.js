@@ -57,7 +57,7 @@ class App extends Component {
                     <div className="page">
                       <NewPaletteForm
                         savePalette={this.savePalette}
-                        palettes={this.state.palettes}
+                        palettes={seedColors}
                         {...routeProps}
                       />
                     </div>
@@ -99,6 +99,17 @@ class App extends Component {
                         palette={generatePalette(
                           this.findPalette(routeProps.match.params.id)
                         )}
+                      />
+                    </div>
+                  )}
+                />
+                <Route
+                  render={(routeProps) => (
+                    <div className="page">
+                      <PaletteList
+                        deletePalette={this.deletePalette}
+                        palettes={this.state.palettes}
+                        {...routeProps}
                       />
                     </div>
                   )}
