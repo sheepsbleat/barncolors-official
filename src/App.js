@@ -36,14 +36,12 @@ class App extends Component {
     );
   };
   deletePalette = (id) => {
-    if (this.state.palettes.length > 1) {
-      this.setState(
-        (st) => ({
-          palettes: st.palettes.filter((palette) => palette.id !== id),
-        }),
-        this.syncLocalStorage
-      );
-    }
+    this.setState(
+      (st) => ({
+        palettes: st.palettes.filter((palette) => palette.id !== id),
+      }),
+      this.syncLocalStorage
+    );
   };
   render() {
     return (

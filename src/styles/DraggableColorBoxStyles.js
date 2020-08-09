@@ -1,4 +1,5 @@
 import sizes from "./sizes";
+import chroma from "chroma-js";
 
 const styles = {
   root: {
@@ -29,12 +30,12 @@ const styles = {
   },
   boxContent: {
     position: "absolute",
-
+    color: (props) =>
+      chroma(props.color).luminance() >= 0.7 ? "rgba(0,0,0,0.6)" : "white",
     width: "100%",
     left: "0px",
     bottom: "0px",
     padding: "10px",
-    color: "rgba(0, 0, 0, 0.5)",
     letterSpacing: "1px",
     textTransform: "uppercase",
     fontSize: "12px",
