@@ -1,6 +1,7 @@
+import { createStyles } from "@material-ui/core";
 import sizes from "./sizes";
 
-export default {
+export default createStyles({
   Navbar: {
     display: "flex",
     alignItems: "center",
@@ -44,7 +45,7 @@ export default {
       marginLeft: "-7px",
       marginTop: "-3px",
     },
-    [sizes.down("md")]: {
+    [sizes.down("sm")]: {
       width: "150px",
     },
   },
@@ -57,4 +58,4 @@ export default {
       marginLeft: "10px",
     },
   },
-};
+});

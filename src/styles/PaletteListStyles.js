@@ -1,12 +1,14 @@
 import sizes from "./sizes";
 import bg from "../bg.svg";
+import { createStyles } from "@material-ui/styles";
 
-export default {
+export default createStyles({
   root: {
     backgroundColor: "#1e8feb",
     backgroundImage: `url(${bg})`,
     /* background by SVGBackgrounds.com */
-    minHeight: "100vh",
+    height: "100vh",
+    overflowY: "scroll",
     display: "flex",
     alignItems: "flex-start",
     justifyContent: "center",
@@ -53,4 +55,4 @@ export default {
       gap: "1.4rem",
     },
   },
-};
+});

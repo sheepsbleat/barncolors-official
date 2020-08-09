@@ -41,7 +41,6 @@ class PaletteMetaForm extends Component {
 
   showEmojiPicker = () => {
     this.setState({ stage: "emoji" });
-    // this.props.handleSubmit(newPaletteName)
   };
   savePalette = (emoji) => {
     const newPalette = {
@@ -52,18 +51,15 @@ class PaletteMetaForm extends Component {
     this.setState({ stage: "" });
   };
   render() {
-    const { newPaletteName } = this.state;
+    const { newPaletteName, stage } = this.state;
 
     return (
       <div>
-        <Dialog open={this.state.stage === "emoji"}>
+        <Dialog open={stage === "emoji"}>
           <DialogTitle>Pick a Palette Emoji</DialogTitle>
           <Picker theme={"light"} set="twitter" onSelect={this.savePalette} />
         </Dialog>
-        <Dialog
-          open={this.state.stage === "form"}
-          aria-labelledby="form-dialog-title"
-        >
+        <Dialog open={stage === "form"} aria-labelledby="form-dialog-title">
           <DialogTitle id="form-dialog-title">
             Choose A Palette Name
           </DialogTitle>
